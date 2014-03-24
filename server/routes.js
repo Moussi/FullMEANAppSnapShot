@@ -155,7 +155,7 @@ function ensureAuthorized(req, res, next) {
         }
     else      
     {    
-        role = req.user.local.role;
+        role = req.user.role;
         
         console.log("Yes user Role :"+ JSON.stringify(role));
     }

@@ -9,7 +9,7 @@ table.table.table-striped(data-ng-hide="loading")
             th Role
     tbody
         tr(data-ng-repeat="user in users")
-            td {{ user.id }}
+            td {{ user._id }}
             td
                i.fa.fa-twitter(data-ng-show="user.provider == 'twitter'")
                i.fa.fa-facebook-square(data-ng-show="user.provider == 'facebook'")

@@ -139,6 +139,7 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ui.router'])
 .run(['$rootScope', '$state', 'Auth', function ($rootScope, $state, Auth) {
 
     $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+          console.log('toState'+ JSON.stringify(toState.data));
         if (!Auth.authorize(toState.data.access)) {
             $rootScope.error = "Seems like you tried accessing a route you don't have access to...";
             event.preventDefault();

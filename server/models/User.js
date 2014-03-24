@@ -19,7 +19,7 @@ module.exports = {
 
         // find a user whose email is the same as the forms email
     // we are checking to see if the user trying to login already exists
-        User.findOne({ 'local.username' :  username }, function(err, user) {
+        User.findOne({ 'username' :  username }, function(err, user) {
             // if there are any errors, return the error
             if (err)
                 return  callback("Error Occured");
@@ -35,9 +35,9 @@ module.exports = {
                 var newUser            = new User();
 
                 // set the user's local credentials
-                newUser.local.username    = username;
-                newUser.local.password = newUser.generateHash(password);
-                newUser.local.role = role;
+                newUser.username    = username;
+                newUser.password = newUser.generateHash(password);
+                newUser.role = role;
                 console.log("New User Created with Role "+ JSON.stringify(role));
         // save the user
                 newUser.save(function(err) {
@@ -106,7 +106,7 @@ module.exports = {
         function(username, password, done) {
 
             
-            User.findOne({ 'local.username' :  username }, function(err, user)
+            User.findOne({ 'username' :  username }, function(err, user)
             {
             if(!user) {
                 console.log('User NOTTTT Founddddddd');

@@ -57,6 +57,7 @@ angular.module('angular-client-side-auth')
                 $location.path('/');
             },
             function(err) {
+            	console.log("Errorrr");
                 $rootScope.error = err;
             });
     };
@@ -69,6 +70,7 @@ angular.module('angular-client-side-auth')
     $scope.userRoles = Auth.userRoles;
 
     Users.getAll(function(res) {
+    	
         $scope.users = res;
         $scope.loading = false;
     }, function(err) {

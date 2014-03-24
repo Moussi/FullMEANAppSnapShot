@@ -11,8 +11,10 @@ angular.module('angular-client-side-auth')
 
             $scope.user = Auth.user;
             $scope.$watch('user', function(user) {
-                if(user.role)
+                if(user.role){
+                    console.log("tessssst  "+JSON.stringify(user));
                     userRole = user.role;
+                }
                 updateCSS();
             }, true);
 
@@ -22,11 +24,16 @@ angular.module('angular-client-side-auth')
             });
 
             function updateCSS() {
+                console.log(JSON.stringify(userRole)+" Acess Leveeel  "+JSON.stringify(accessLevel));
                 if(userRole && accessLevel) {
                     if(!Auth.authorize(accessLevel, userRole))
+                       {
                         element.css('display', 'none');
+                       }
                     else
+                    {
                         element.css('display', prevDisp);
+                    }
                 }
             }
         }
