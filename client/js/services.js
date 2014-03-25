@@ -47,7 +47,8 @@ angular.module('angular-client-side-auth')
             $http.post('/logout').success(function(){
                 changeUser({
                     username: '',
-                    role: userRoles.public
+                    role: userRoles.public,
+                    avatar : ''
                 });
                 success();
             }).error(error);

@@ -133,6 +133,7 @@ module.exports = {
         passReqToCallback : true
         },
         function(accessToken, refreshToken, profile, done) {
+            
             var user = module.exports.findOrCreateOauthUser(profile.provider, profile.id);
             done(null, user);
         });

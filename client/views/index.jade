@@ -34,6 +34,7 @@ html(lang='en', data-ng-app='angular-client-side-auth')
                         div#userInfo.pull-right(data-access-level='accessLevels.user')
                             | Welcome&nbsp;
                             strong {{ user.username }}&nbsp;
+                            img(ng-src='{{user.avatar}}')
                             span.label(data-ng-class='{"label-info": user.role.title == userRoles.user.title, "label-success": user.role.title == userRoles.admin.title}') {{ user.role.title }}
 
         .container(data-ui-view)

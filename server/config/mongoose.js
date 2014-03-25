@@ -21,6 +21,21 @@ module.exports = function(config) {
         
 });
 
+       var facebookuserSchema = mongoose.Schema({
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String,
+        location     : String,
+        birthday     : String,  
+        username        : String,
+        role : 
+            {"bitMask":Number,"title":String},
+            socialtype:String,
+            avatar:String
+        
+});
+
 
    // generating a hash
 userSchema.methods.generateHash = function(password) {
@@ -33,7 +48,7 @@ userSchema.methods.validPassword = function(password) {
 };
 
     var User=mongoose.model('User',userSchema);
- 
+    var FacebookUser=mongoose.model('FacebookUser',facebookuserSchema);
  
 }
 

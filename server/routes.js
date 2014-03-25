@@ -103,15 +103,22 @@ var routes = [
         path: '/*',
         httpMethod: 'GET',
         middleware: [function(req, res) {
-            var role = userRoles.public, username = '';
+            var role = userRoles.public, username = '',avatar = 'http://www.gravatar.com/avatar/1e9b53930c309b0003d11a90673a5717.png';
             if(req.user) {
                 
                 role = req.user.role;
                 username = req.user.username;
+                if(req.user.avatar)
+                    {
+                        console.log('Avararrrrrrrrrrrrrrrrr '+req.user.avatar);
+                        avatar = req.user.avatar;
+                    }
+                
             }
             res.cookie('user', JSON.stringify({
                 'username': username,
-                'role': role
+                'role': role,
+                'avatar':avatar
             }));
             res.render('index');
         }]
